@@ -22,7 +22,7 @@ export function Navbar() {
               <div className="flex h-8 w-8 items-center justify-center rounded-md border border-green-900/50 bg-black shadow-[0_0_5px_rgba(0,255,0,0.3)]">
                 <Lock className="h-4 w-4 text-green-500" />
               </div>
-              <span>Cloudshra Sec</span>
+              <span>Cloudshra sec lab</span>
             </a>
           </div>
 

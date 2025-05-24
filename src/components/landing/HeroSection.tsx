@@ -48,7 +48,7 @@ export function HeroSection({ name }: HeroSectionProps) {
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center gap-2 rounded-md border border-green-500/20 bg-black/70 px-4 py-2 text-sm font-mono text-green-400 shadow-[0_0_15px_rgba(0,255,0,0.3)]">
             <Terminal className="h-4 w-4 text-green-500" />
-            <span>Cloudshra Sec Engineer & Security Researcher</span>
+            <span>Cloudshra sec lab Engineer & Security Researcher</span>
           </div>
 
           <h1 className="mt-6 font-mono text-5xl font-bold tracking-tight text-green-500 sm:text-6xl md:text-7xl">
