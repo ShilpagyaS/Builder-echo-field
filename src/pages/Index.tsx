@@ -15,7 +15,7 @@ const Index = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-black text-green-500">
       <Navbar />
       <main>
         <HeroSection name={personalInfo.name} />
@@ -25,6 +25,24 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+
+      {/* Custom styles for cybersecurity theme */}
+      <style jsx global>{`
+        @keyframes scanline {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(100vh);
+          }
+        }
+
+        body {
+          background-color: #000;
+          color: #00ff00;
+          font-family: monospace;
+        }
+      `}</style>
     </div>
   );
 };

@@ -15,7 +15,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Calendar, Send } from "lucide-react";
+import { Mail, Calendar, Send, Terminal, ShieldAlert } from "lucide-react";
+import { TerminalEffect } from "./TerminalEffect";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -51,13 +52,22 @@ export function ContactSection() {
   }
 
   return (
-    <section className="py-20" id="contact">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-black py-20" id="contact">
+      <div className="absolute inset-0 z-0">
+        <div className="h-full w-full bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,0,0.05),transparent_70%)]"></div>
+        <div className="absolute bottom-0 h-px w-full bg-gradient-to-r from-transparent via-green-500/20 to-transparent"></div>
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl">
-            Get In Touch
+          <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-md border border-green-900/50 bg-black shadow-[0_0_10px_rgba(0,255,0,0.2)]">
+            <Terminal className="h-6 w-6 text-green-500" />
+          </div>
+
+          <h2 className="mb-4 font-mono text-3xl font-bold text-green-500 sm:text-4xl">
+            Establish Connection
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+          <p className="mx-auto max-w-2xl font-mono text-lg text-slate-300">
             Ready to secure your infrastructure? Have questions about my
             services? I'm here to help you implement robust security practices.
           </p>
@@ -65,42 +75,58 @@ export function ContactSection() {
 
         <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-2">
           <div>
-            <Card className="border-slate-200 dark:border-slate-800">
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+            <Card className="border-green-900/30 bg-black/60 shadow-[0_0_15px_rgba(0,255,0,0.1)] dark:border-green-900/30 dark:bg-black/60">
+              <CardHeader className="border-b border-green-900/20">
+                <CardTitle className="font-mono text-green-500">
+                  Connection Info
+                </CardTitle>
               </CardHeader>
-              <CardContent className="grid gap-6">
-                <div className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-blue-500" />
+              <CardContent className="grid gap-6 pt-6">
+                <div className="flex items-center gap-3 rounded-md border border-green-900/20 bg-black/50 p-3">
+                  <Mail className="h-5 w-5 text-green-500" />
                   <div>
-                    <p className="font-medium">Email Me</p>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                    <p className="font-mono font-medium text-green-400">
+                      Email Channel
+                    </p>
+                    <p className="font-mono text-sm text-slate-400">
                       contact@yourdomain.com
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Calendar className="h-5 w-5 text-blue-500" />
+                <div className="flex items-center gap-3 rounded-md border border-green-900/20 bg-black/50 p-3">
+                  <Calendar className="h-5 w-5 text-green-500" />
                   <div>
-                    <p className="font-medium">Schedule a Call</p>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                    <p className="font-mono font-medium text-green-400">
+                      Secure Meeting
+                    </p>
+                    <p className="font-mono text-sm text-slate-400">
                       Book a free 30-minute consultation
                     </p>
                   </div>
                 </div>
-                <Button className="mt-2 flex items-center gap-2 bg-blue-600 hover:bg-blue-700">
-                  <Calendar className="h-4 w-4" />
-                  Book Free Audit
+                <div className="rounded-md border border-green-900/20 bg-black/50 p-4">
+                  <TerminalEffect
+                    text="Security consultation initialized. Ready to identify and mitigate threats to your systems."
+                    speed={20}
+                    prompt="$"
+                    className="text-sm"
+                  />
+                </div>
+                <Button className="flex items-center gap-2 border border-green-500/30 bg-black font-mono text-green-500 shadow-[0_0_10px_rgba(0,255,0,0.2)] transition-all hover:bg-green-500/10 hover:shadow-[0_0_15px_rgba(0,255,0,0.3)]">
+                  <ShieldAlert className="h-4 w-4" />
+                  Book Free Security Audit
                 </Button>
               </CardContent>
             </Card>
           </div>
 
-          <Card className="border-slate-200 dark:border-slate-800">
-            <CardHeader>
-              <CardTitle>Send a Message</CardTitle>
+          <Card className="border-green-900/30 bg-black/60 shadow-[0_0_15px_rgba(0,255,0,0.1)] dark:border-green-900/30 dark:bg-black/60">
+            <CardHeader className="border-b border-green-900/20">
+              <CardTitle className="font-mono text-green-500">
+                Secure Message Channel
+              </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-6">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
@@ -111,11 +137,17 @@ export function ContactSection() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Name</FormLabel>
+                        <FormLabel className="font-mono text-green-400">
+                          Identifier
+                        </FormLabel>
                         <FormControl>
-                          <Input placeholder="Your name" {...field} />
+                          <Input
+                            placeholder="Your name"
+                            {...field}
+                            className="border-green-900/30 bg-black/70 font-mono text-green-400 placeholder:text-green-900/50 focus-visible:border-green-500/50 focus-visible:ring-green-500/20"
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="font-mono text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -124,14 +156,17 @@ export function ContactSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel className="font-mono text-green-400">
+                          Secure Channel
+                        </FormLabel>
                         <FormControl>
                           <Input
                             placeholder="your.email@example.com"
                             {...field}
+                            className="border-green-900/30 bg-black/70 font-mono text-green-400 placeholder:text-green-900/50 focus-visible:border-green-500/50 focus-visible:ring-green-500/20"
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="font-mono text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -140,16 +175,20 @@ export function ContactSection() {
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>
-                          Company{" "}
-                          <span className="text-sm text-slate-500">
+                        <FormLabel className="font-mono text-green-400">
+                          Organization{" "}
+                          <span className="text-sm text-green-900/70">
                             (Optional)
                           </span>
                         </FormLabel>
                         <FormControl>
-                          <Input placeholder="Your company" {...field} />
+                          <Input
+                            placeholder="Your company"
+                            {...field}
+                            className="border-green-900/30 bg-black/70 font-mono text-green-400 placeholder:text-green-900/50 focus-visible:border-green-500/50 focus-visible:ring-green-500/20"
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="font-mono text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -158,23 +197,25 @@ export function ContactSection() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel className="font-mono text-green-400">
+                          Transmission
+                        </FormLabel>
                         <FormControl>
                           <Textarea
                             placeholder="How can I help with your security needs?"
-                            className="min-h-[120px]"
+                            className="min-h-[120px] border-green-900/30 bg-black/70 font-mono text-green-400 placeholder:text-green-900/50 focus-visible:border-green-500/50 focus-visible:ring-green-500/20"
                             {...field}
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="font-mono text-red-400" />
                       </FormItem>
                     )}
                   />
                   <Button
                     type="submit"
-                    className="w-full gap-2 bg-blue-600 hover:bg-blue-700"
+                    className="w-full gap-2 border border-green-500/30 bg-black font-mono text-green-500 shadow-[0_0_10px_rgba(0,255,0,0.2)] transition-all hover:bg-green-500/10 hover:shadow-[0_0_15px_rgba(0,255,0,0.3)]"
                   >
-                    Send Message
+                    Transmit Secure Message
                     <Send className="h-4 w-4" />
                   </Button>
                 </form>
