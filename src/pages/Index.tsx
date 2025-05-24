@@ -11,7 +11,7 @@ const Index = () => {
   // Personal information - in a real application, this might come from a CMS or API
   const personalInfo = {
     name: "John Doe", // Replace with your name
-    title: "DevSecOps Engineer & Security Researcher",
+    title: "Cloudshra Sec Engineer & Security Researcher",
   };
 
   return (

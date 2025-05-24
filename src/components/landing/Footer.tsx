@@ -11,7 +11,7 @@ export function Footer() {
           <div className="flex items-center gap-2">
             <ShieldCheck className="h-5 w-5 text-green-500" />
             <p className="font-mono text-slate-400">
-              © {currentYear} DevSecOps Consulting. All rights reserved.
+              © {currentYear} Cloudshra Sec. All rights reserved.
             </p>
           </div>
 
