@@ -8,6 +8,7 @@ import {
   Users,
   AlertTriangle,
   Fingerprint,
+  Shield,
 } from "lucide-react";
 
 interface ServiceCardProps {
